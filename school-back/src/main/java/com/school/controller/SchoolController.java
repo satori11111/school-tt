@@ -4,6 +4,7 @@ import com.school.model.School;
 import com.school.model.SchoolType;
 import com.school.service.SchoolService;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/schools")
 @CrossOrigin(origins = "http://localhost:3000")
+@RequiredArgsConstructor
 public class SchoolController {
     private final SchoolService schoolService;
-
-    public SchoolController(SchoolService schoolService) {
-        this.schoolService = schoolService;
-    }
 
     @GetMapping
     public List<School> getSchools(
